@@ -27,6 +27,12 @@ export const VideoScroller = ({ videos }: VideoScrollerProps) => {
     function handle(_event: Event) {
       const event = _event as SnapEvent;
       const newVideo = event.snapTargetBlock;
+
+      if (!newVideo.id) {
+        console.error("No id found for new video");
+        return;
+      }
+
       setCurrentVideo(newVideo.id);
     }
 
