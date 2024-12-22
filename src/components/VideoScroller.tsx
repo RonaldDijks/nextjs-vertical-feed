@@ -3,6 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Video } from "./Video";
 
+interface SnapEvent extends Event {
+  snapTargetBlock: HTMLElement;
+}
+
 export interface Video {
   id: string;
   src: string;
@@ -20,10 +24,9 @@ export const VideoScroller = ({ videos }: VideoScrollerProps) => {
     if (!containerRef.current) return;
     const container = containerRef.current;
 
-    function handle(event: Event) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const newVideo = (event as any).snapTargetBlock as HTMLElement;
-      console.log(newVideo.id);
+    function handle(_event: Event) {
+      const event = _event as SnapEvent;
+      const newVideo = event.snapTargetBlock;
       setCurrentVideo(newVideo.id);
     }
 

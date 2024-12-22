@@ -1,6 +1,6 @@
-import { Video, VideoScroller } from "@/components/VideoScroller";
+import { VideoScroller } from "@/components/VideoScroller";
 
-const videos: Video[] = [
+const videos = [
   { id: "1", src: "/videos/tiktok_01.mp4" },
   { id: "2", src: "/videos/tiktok_02.mp4" },
   { id: "3", src: "/videos/tiktok_03.mp4" },
